@@ -1,8 +1,26 @@
-<div class="codeblock">
-  <header>
-    <button>⬤</button>
-  </header>
-  <slot />
+<script lang="ts">
+  let maximized = false;
+  let portal: HTMLElement;
+  let code: HTMLElement;
+
+  function toggle() {
+    if (!maximized) {
+      maximized = true;
+      document.body.appendChild(code);
+    } else {
+      maximized = false;
+      portal.appendChild(code);
+    }
+  }
+</script>
+
+<div class="portal" bind:this={portal}>
+  <div class="codeblock" bind:this={code} class:maximized>
+    <header>
+      <button on:click={toggle}>⬤</button>
+    </header>
+    <slot />
+  </div>
 </div>
 
 <style lang="scss">
@@ -13,6 +31,15 @@
     box-shadow: $shadow-500;
     padding: $spacing-level-150;
     background-color: $color-neutral-75;
+
+    &.maximized {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      position: fixed;
+    }
 
     header {
       font-size: 0.8rem;

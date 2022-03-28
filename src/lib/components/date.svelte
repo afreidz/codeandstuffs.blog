@@ -9,8 +9,6 @@
   $: formatted = new Date(stamp).toLocaleString();
   $: isNew = now - stamp < week;
 
-  $: console.log(now - stamp, week);
-
   export { stamp };
 </script>
 
