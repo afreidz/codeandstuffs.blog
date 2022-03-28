@@ -10,7 +10,7 @@ export async function get() {
     return {
       title: metadata.title,
       teaser: metadata.teaser,
-      date: new Date(metadata.date),
+      date: +new Date(metadata.date),
       slug: basename(filename, ".svx"),
     };
   });

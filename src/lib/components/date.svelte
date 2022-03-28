@@ -1,0 +1,40 @@
+<script lang="ts">
+  let stamp: number = +new Date();
+  let formatted = "";
+  let isNew = false;
+
+  const week = 6.048e8;
+  const now = +new Date();
+
+  $: formatted = new Date(stamp).toLocaleString();
+  $: isNew = now - stamp < week;
+
+  $: console.log(now - stamp, week);
+
+  export { stamp };
+</script>
+
+<em>
+  {#if isNew}<span>New</span>{/if}
+  Posted: {formatted}
+</em>
+
+<style lang="scss">
+  @use "$lib/tokens/scss" as *;
+
+  em {
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: inline-block;
+    color: $color-neutral-300;
+    margin-bottom: $spacing-level-400;
+  }
+
+  span {
+    font-weight: 600;
+    display: inline-block;
+    color: $color-neutral-100;
+    padding: 0 $spacing-level-50;
+    background-color: $color-highlight-400;
+  }
+</style>
