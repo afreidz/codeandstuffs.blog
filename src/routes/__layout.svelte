@@ -26,13 +26,12 @@
       background-color: $color-neutral-900;
     }
   }
-  
+
   header {
     top: 0;
     z-index: 1;
     position: sticky;
     padding: $spacing-level-200;
-    margin-bottom: $spacing-level-200;
     background-color: $color-neutral-900;
   }
 </style>

@@ -17,12 +17,14 @@ teaser: |
 <script>
   import Link from "$lib/elements/link.svelte";
   import Code from "$lib/components/code.svelte";
+  import PostDate from "$lib/components/date.svelte";
   import Heading from "$lib/elements/heading.svelte";
   import Section from "$lib/components/section.svelte";
   import Paragraph from "$lib/elements/paragraph.svelte";
 </script>
 
 <Section>
+  <PostDate stamp={date}/>
   <Heading>{title}</Heading>
   <Paragraph>{teaser}</Paragraph>
   <Paragraph>
