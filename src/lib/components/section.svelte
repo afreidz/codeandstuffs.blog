@@ -4,10 +4,14 @@
   export { invert };
 </script>
 
+<section class:invert>
+  <div>
+    <slot />
+  </div>
+</section>
 
 <style lang="scss">
   @use "$lib/tokens/scss" as *;
-  $skew: 0.5deg;
 
   section {
     font-size: 20px;
@@ -16,9 +20,9 @@
     text-align: center;
     color: $color-neutral-100;
     padding: $spacing-level-200;
-    transform: skewY(-1 * $skew);
     padding-top: $spacing-level-400;
     background-color: $color-neutral-900;
+    transform: skewY(-1 * $skew-level-100);
     font-family: "IBM Plex Sans", sans-serif;
   }
 
@@ -28,18 +32,11 @@
     text-align: left;
     max-width: 700px;
     min-width: 320px;
-    transform: skewY($skew);
+    transform: skewY($skew-level-100);
   }
-
 
   .invert {
     color: $color-neutral-900;
     background-color: $color-neutral-100;
   }
 </style>
-
-<section class:invert={invert}>
-  <div>
-    <slot/>
-  </div>
-</section>

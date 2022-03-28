@@ -1,6 +1,10 @@
 {
   "name": "codeandstuffs.blog",
   "version": "0.0.1",
+  "enginesStrict": true,
+  "engines": {
+    "node": "~16"
+  },
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -13,6 +17,10 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
+    "@fontsource/ibm-plex-mono": "^4.5.6",
+    "@fontsource/ibm-plex-sans": "^4.5.7",
+    "@fontsource/permanent-marker": "^4.5.3",
+    "@fontsource/roboto-serif": "^4.5.4",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -20,21 +28,26 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^3.2.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
+    "mdsvex": "^0.10.5",
+    "p-map": "^5.3.0",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.0",
+    "sass": "^1.49.9",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.10.1",
+    "the-new-css-reset": "^1.5.1",
     "tslib": "^2.3.1",
     "typescript": "~4.6.2"
   },
   "type": "module",
-  "dependencies": {
-    "@fontsource/ibm-plex-mono": "^4.5.6",
-    "@fontsource/ibm-plex-sans": "^4.5.7",
-    "@fontsource/permanent-marker": "^4.5.3",
-    "@fontsource/roboto-serif": "^4.5.4",
-    "sass": "^1.49.9",
-    "the-new-css-reset": "^1.5.1"
+  "lint-staged": {
+    "*": [
+      "npm run check",
+      "npm run format",
+      "npm run lint"
+    ]
   }
 }

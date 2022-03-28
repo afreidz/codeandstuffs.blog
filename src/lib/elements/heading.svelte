@@ -1,3 +1,7 @@
+<h2>
+  <slot />
+</h2>
+
 <style lang="scss">
   @use "$lib/tokens/scss" as *;
   h2 {
@@ -8,7 +12,3 @@
     margin-bottom: $spacing-level-400;
   }
 </style>
-
-<h2>
-  <slot/>
-</h2>
