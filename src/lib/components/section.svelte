@@ -19,11 +19,10 @@
     font-weight: 300;
     text-align: center;
     color: $color-neutral-100;
-    padding: $spacing-level-200;
-    padding-top: $spacing-level-400;
     background-color: $color-neutral-900;
     transform: skewY(-1 * $skew-level-100);
     font-family: "IBM Plex Sans", sans-serif;
+    padding: $spacing-level-400 $spacing-level-200;
   }
 
   div {

@@ -10,7 +10,13 @@ teaser: |
   pulvinar nunc ac felis ultrices lacinia. Vestibulum scelerisque fringilla elementum. Pellentesque eget eros id tellus maximus scelerisque.
 ---
 
+<svelte:head>
+  <title>{title} - Code and Stuffs</title>
+</svelte:head>
+
 <script>
+  import Link from "$lib/elements/link.svelte";
+  import Code from "$lib/components/code.svelte";
   import Heading from "$lib/elements/heading.svelte";
   import Section from "$lib/components/section.svelte";
   import Paragraph from "$lib/elements/paragraph.svelte";
@@ -20,7 +26,7 @@ teaser: |
   <Heading>{title}</Heading>
   <Paragraph>{teaser}</Paragraph>
   <Paragraph>
-    Donec congue sit amet diam sit amet interdum. Aenean vel sollicitudin erat. In id suscipit libero. Cras volutpat sollicitudin pulvinar. 
+    Donec congue sit amet diam sit amet interdum. <Link href="/">Aenean</Link> vel sollicitudin erat. In id suscipit libero. Cras volutpat sollicitudin pulvinar. 
     Praesent malesuada magna sapien, in efficitur risus faucibus a. Fusce est nunc, porta ut purus quis, ultricies aliquet risus. Sed non 
     interdum neque, ut scelerisque sapien. Vivamus dui neque, interdum at malesuada ac, sollicitudin non quam. Praesent porttitor leo et mi mattis 
     auctor. Maecenas ex elit, maximus vitae nulla vel, pellentesque vulputate tortor. Nam dignissim sem sit amet pretium ullamcorper.
@@ -28,10 +34,12 @@ teaser: |
 </Section> 
 
 <Section invert={true}>
+  <Code>
 
 ```js
 const foo = 'bar';
 ```
 
+  </Code>
 </Section>
 

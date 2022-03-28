@@ -2,10 +2,10 @@
   import Logo from "$lib/elements/logo.svelte";
   import "@fontsource/ibm-plex-sans/300.css";
   import "@fontsource/ibm-plex-sans/600.css";
+  import "@fontsource/ibm-plex-mono/400.css";
   import "@fontsource/roboto-serif/600.css";
   import "the-new-css-reset/css/reset.css";
   import "@fontsource/permanent-marker";
-  import "@fontsource/ibm-plex-mono";
 </script>
 
 <header>
@@ -26,7 +26,7 @@
       background-color: $color-neutral-900;
     }
   }
-
+  
   header {
     top: 0;
     z-index: 1;

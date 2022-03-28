@@ -37,8 +37,13 @@
   export { posts };
 </script>
 
+<svelte:head>
+  <title>Code and Stuffs</title>
+</svelte:head>
+
 {#if posts.main}
   <Section>
+    
     <Heading>{posts.main.title}</Heading>
     <Paragraph>{posts.main.teaser}</Paragraph>
     <Paragraph>&hellip;</Paragraph>
