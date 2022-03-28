@@ -1,6 +1,10 @@
 ---
 title: I'm gonna blog about code and stuff
 date: 1648242773297
+feeling: 🤩
+tags:
+  - code
+  - stuffs
 teaser: |
   Lorem ipsum dolor sit amet, consectetur adipiscing. Etiam dapibus id dolor nec vehicula. 
   Pellentesque viverra, mauris in placerat dignissim, neque diam egestas sem, sollicitudin semper lacus nunc vitae ligula. 
@@ -17,6 +21,7 @@ teaser: |
 <script>
   import Link from "$lib/elements/link.svelte";
   import Code from "$lib/components/code.svelte";
+  import Teaser from "$lib/elements/teaser.svelte";
   import PostDate from "$lib/components/date.svelte";
   import Heading from "$lib/elements/heading.svelte";
   import Section from "$lib/components/section.svelte";
@@ -26,7 +31,7 @@ teaser: |
 <Section>
   <PostDate stamp={date}/>
   <Heading>{title}</Heading>
-  <Paragraph>{teaser}</Paragraph>
+  <Teaser>{teaser}</Teaser>
   <Paragraph>
     Donec congue sit amet diam sit amet interdum. <Link href="/">Aenean</Link> vel sollicitudin erat. In id suscipit libero. Cras volutpat sollicitudin pulvinar. 
     Praesent malesuada magna sapien, in efficitur risus faucibus a. Fusce est nunc, porta ut purus quis, ultricies aliquet risus. Sed non 

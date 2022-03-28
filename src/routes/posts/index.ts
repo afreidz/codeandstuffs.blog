@@ -8,9 +8,7 @@ export async function get() {
     const { metadata } = await module();
 
     return {
-      title: metadata.title,
-      teaser: metadata.teaser,
-      date: +new Date(metadata.date),
+      ...metadata,
       slug: basename(filename, ".svx"),
     };
   });

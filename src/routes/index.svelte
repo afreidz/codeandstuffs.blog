@@ -13,6 +13,7 @@
 
 <script lang="ts">
   import Link from "$lib/elements/link.svelte";
+  import Teaser from "$lib/elements/teaser.svelte";
   import PostDate from "$lib/components/date.svelte";
   import Heading from "$lib/elements/heading.svelte";
   import Section from "$lib/components/section.svelte";
@@ -46,7 +47,7 @@
   <Section>
     <PostDate stamp={posts.main.date} />
     <Heading>{posts.main.title}</Heading>
-    <Paragraph>{posts.main.teaser}</Paragraph>
+    <Teaser>{posts.main.teaser}</Teaser>
     <Paragraph>&hellip;</Paragraph>
     <Link href={`posts/${posts.main.slug}`}>Read More</Link>
   </Section>
