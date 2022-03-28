@@ -7,32 +7,26 @@
 
 <style lang="scss">
   @use "$lib/tokens/scss" as *;
+  $undercurl: underline wavy $color-highlight-500 1px;
 
   a {
     font-weight: 600;
     position: relative;
     display: inline-block;
-
-    &:before {
-      z-index: -1;
-      content: "";
-      opacity: 0.5;
-      top: 0;
-      bottom: 0;
-      left: -3px;
-      right: -5px;
-      position: absolute;
-      transition: opacity $transition-100;
-      background-color: $color-highlight-500;
-      transform: skewX(-1 * $skew-level-500);
-    }
+    color: $color-highlight-525;
+    text-underline-offset: 0.25em;
+    transition: color $transition-100;
 
     &:hover {
-      text-decoration: underline;
+      color: $color-neutral-100;
+      text-decoration: $undercurl;
     }
 
-    &:hover:before {
-      opacity: 0;
+    @media (hover: none) {
+      & {
+        color: $color-neutral-100;
+        text-decoration: $undercurl;
+      }
     }
   }
 </style>
