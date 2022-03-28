@@ -1,3 +1,9 @@
+<h1>
+  <a href="/">
+    <span>//</span>codeandstuffs<span>.blog</span>
+  </a>
+</h1>
+
 <style lang="scss">
   @use "$lib/tokens/scss" as *;
 
@@ -11,5 +17,3 @@
     color: $color-highlight-500;
   }
 </style>
-
-<h1><span>//</span>codeandstuffs<span>.blog</span></h1>
