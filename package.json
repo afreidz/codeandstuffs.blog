@@ -17,6 +17,7 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
+    "@fingerprintjs/fingerprintjs": "^3.3.3",
     "@fontsource/ibm-plex-mono": "^4.5.6",
     "@fontsource/ibm-plex-sans": "^4.5.7",
     "@fontsource/permanent-marker": "^4.5.3",
