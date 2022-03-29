@@ -23,7 +23,9 @@
     date: number;
     slug: string;
     title: string;
+    tags: string[];
     teaser: string;
+    feeling: string;
   }
 
   interface Posts {

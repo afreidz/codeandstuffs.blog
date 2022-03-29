@@ -21,7 +21,6 @@
   @use "$lib/tokens/scss" as *;
 
   em {
-    font-weight: 600;
     font-size: 0.8rem;
     display: inline-block;
     color: $color-neutral-300;
@@ -30,6 +29,7 @@
 
   span {
     font-weight: 600;
+    border-radius: 0.3rem;
     display: inline-block;
     color: $color-neutral-100;
     padding: 0 $spacing-level-50;

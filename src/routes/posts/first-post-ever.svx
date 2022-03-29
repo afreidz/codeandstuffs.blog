@@ -5,6 +5,7 @@ feeling: 🤩
 tags:
   - code
   - stuffs
+  - first-post
 teaser: |
   Lorem ipsum dolor sit amet, consectetur adipiscing. Etiam dapibus id dolor nec vehicula. 
   Pellentesque viverra, mauris in placerat dignissim, neque diam egestas sem, sollicitudin semper lacus nunc vitae ligula. 
@@ -20,6 +21,7 @@ teaser: |
 
 <script>
   import Link from "$lib/elements/link.svelte";
+  import Meta from "$lib/components/meta.svelte";
   import Code from "$lib/components/code.svelte";
   import Teaser from "$lib/elements/teaser.svelte";
   import PostDate from "$lib/components/date.svelte";
@@ -31,6 +33,7 @@ teaser: |
 <Section>
   <PostDate stamp={date}/>
   <Heading>{title}</Heading>
+  <Meta feeling={feeling} tags={tags}/>
   <Teaser>{teaser}</Teaser>
   <Paragraph>
     Donec congue sit amet diam sit amet interdum. <Link href="/">Aenean</Link> vel sollicitudin erat. In id suscipit libero. Cras volutpat sollicitudin pulvinar. 
