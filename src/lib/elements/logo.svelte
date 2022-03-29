@@ -11,6 +11,19 @@
     font-family: "Permanent Marker", cursive;
     font-size: 38px;
     line-height: 1;
+
+    @include sm {
+      & {
+        font-size: 30px;
+        text-align: center;
+      }
+    }
+
+    @include md {
+      & {
+        font-size: 30px;
+      }
+    }
   }
 
   span {
