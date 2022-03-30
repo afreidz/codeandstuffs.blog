@@ -1,25 +1,37 @@
 <script lang="ts">
+  import { Date, Paragraph } from "$lib";
+
   let tags: string[];
   let feeling = "";
+  let date = 0;
 
-  export { tags, feeling };
+  export { tags, feeling, date };
 </script>
 
-<ul class="meta">
-  <li>Feeling: {feeling}</li>
-  <li>
-    {#if tags}
-      Tags:
-      <ul class="inline">
-        {#each tags as tag}
-          <li class="inline"><span class={tag}>{tag}</span></li>
-        {/each}
-      </ul>
+<Paragraph>
+  <ul class="meta">
+    {#if feeling}
+      <li>Feeling: {feeling}</li>
     {/if}
-  </li>
-  <!-- <li class="inline first">👍 : 0</li>
-  <li class="inline">👎 : 0</li> -->
-</ul>
+    <li>
+      {#if tags}
+        Tags:
+        <ul class="inline">
+          {#each tags as tag}
+            <li class="inline"><span class={tag}>{tag}</span></li>
+          {/each}
+        </ul>
+      {/if}
+    </li>
+    {#if date}
+      <li>
+        Posted: <Date stamp={date} />
+      </li>
+    {/if}
+    <!-- <li class="inline first">👍 : 0</li>
+<li class="inline">👎 : 0</li> -->
+  </ul>
+</Paragraph>
 
 <style lang="scss">
   @use "$lib/tokens/scss" as *;
@@ -39,7 +51,6 @@
 
     span {
       font-weight: 600;
-      font-size: 0.8rem;
       border-radius: 0.3rem;
       display: inline-block;
       color: $color-neutral-100;

@@ -8,3 +8,4 @@ export { default as Link } from "$lib/elements/link.svelte";
 export { default as Teaser } from "$lib/elements/teaser.svelte";
 export { default as Heading } from "$lib/elements/heading.svelte";
 export { default as Paragraph } from "$lib/elements/paragraph.svelte";
+export { default as Signature } from "$lib/elements/signature.svelte";

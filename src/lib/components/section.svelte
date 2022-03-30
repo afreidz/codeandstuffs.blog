@@ -16,12 +16,10 @@
   section {
     font-size: 20px;
     line-height: 1.6;
-    font-weight: 300;
     text-align: center;
     color: $color-neutral-100;
     background-color: $color-neutral-900;
     transform: skewY(-1 * $skew-level-100);
-    font-family: "IBM Plex Sans", sans-serif;
     padding: $spacing-level-400 $spacing-level-200;
   }
 

@@ -7,12 +7,10 @@ tags:
   - stuffs
   - first
 teaser: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing. Etiam dapibus id dolor nec vehicula. 
-  Pellentesque viverra, mauris in placerat dignissim, neque diam egestas sem, sollicitudin semper lacus nunc vitae ligula. 
-  Sed quis sollicitudin dolor, sed semper eros. Nulla sit amet sollicitudin lectus. Duis sem elit, rutrum quis arcu in, aliquet consequat lorem. 
-  Proin non elit a nunc auctor venenatis vel ut leo. Maecenas nisl metus, posuere non dui et, malesuada rutrum nisl. Class aptent taciti 
-  sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec orci urna, fringilla porta dictum id, euismod a ligula. In 
-  pulvinar nunc ac felis ultrices lacinia. Vestibulum scelerisque fringilla elementum. Pellentesque eget eros id tellus maximus scelerisque.
+  There are lots of things that I think of, with my brain and all.  Sometimes I lay awake at night.  Mostly I am thinking about code. Sometimes 
+  I think about other stuffs.  Should all of that code and stuffs stay in my brain and never bother someone else's conscious mind? Probably.
+  But I do think it helps me to synthisize those thoughts into coherent words.  Otherwise they are just a jumbled mess, that I inevitably forget,
+  occupying space in a brain that has little to give.  So here goes my attempt to become a blogger ... about code ... or stuffs ...
 ---
 
 <svelte:head>
@@ -24,24 +22,30 @@ teaser: |
     Code,
     Link,
     Meta,
-    Teaser,
     Date,
+    Teaser,
     Heading,
     Section,
     Paragraph,
+    Signature,
   } from "$lib";
 </script>
 
 <Section>
-  <Date stamp={date}/>
-  <Heading>{title}</Heading>
-  <Meta feeling={feeling} tags={tags}/>
+  <Heading level={2}>{title}</Heading>
+  <Meta feeling={feeling} tags={tags} date={date}/>
   <Teaser>{teaser}</Teaser>
   <Paragraph>
-    Donec congue sit amet diam sit amet interdum. <Link href="/">Aenean</Link> vel sollicitudin erat. In id suscipit libero. Cras volutpat sollicitudin pulvinar. 
-    Praesent malesuada magna sapien, in efficitur risus faucibus a. Fusce est nunc, porta ut purus quis, ultricies aliquet risus. Sed non 
-    interdum neque, ut scelerisque sapien. Vivamus dui neque, interdum at malesuada ac, sollicitudin non quam. Praesent porttitor leo et mi mattis 
-    auctor. Maecenas ex elit, maximus vitae nulla vel, pellentesque vulputate tortor. Nam dignissim sem sit amet pretium ullamcorper.
+
+I am a <Link href="https://linkedin.com/in/andyfreidenfelds">software engineer</Link> by trade.  I have been working on large-scale e-commerce sites for over 15 years.  I mostly stick to JavaScript despite its many, MANY flaws. There are lots of patterns, anti-patterns, tricks, tips, and oddities that I have come across in the last 15 years.  While I am no replacement for <Link href="https://stackoverflow.com/">StackOverflow</Link>, hopefully the things I do manage to jot down here will be of **some** value to **someone**. 
+  
+  </Paragraph>
+  <Paragraph>
+    The JavaScript ecosystem and community is already full-loaded.  So if you don't need another source of noise, I don't blame you.  I can offer no sales pitch for this blog.  I hope it becomes a useful tool for my own catharsis primarily, and a resource for others secondarily.
+  </Paragraph>
+  <Heading level={3}>What to expect from the "code"</Heading>
+  <Paragraph>
+    What kinds of things can you expect from this site? Code examples are probably obvious.  They will look like this:
   </Paragraph>
 </Section> 
 
@@ -49,16 +53,20 @@ teaser: |
   <Code>
 
 ```jsx
-// isEvil.test.js
+// isEvil.test.jsx
 
-import isEvil from "./isEvil";
+import crypto from "totally-not-mining-with-your-machine/crypto";
 
-<h1>Hello</h1>
+function iDontEvenLikeReact() {
+  const shouldIDoThis = false;
+  return (
+    <h1>Hello</h1>
+  )
+}
 
-describe("isEvil", () => {
-  it("should correctly identify companies as evil", () => {
-    const fb = isEvil("facebook");
-    expect(fb).toBe(true);
+describe("my life", () => {
+  it("is going", () => {
+    expect(crypto.isMining).toBe(true);
   });
 });
 ```
@@ -81,5 +89,25 @@ describe("isEvil", () => {
 ```
 
   </Code>
+</Section>
+
+<Section>
+  <Heading level={3}>What to expect from the "stuffs"</Heading>
+  <Paragraph>
+
+There is literally no telling where my stream of consciousness will take me.  So be prepared for some really off-topic stuff. I am a recent new father, at the time of this post I have 2 boys (a ~2yr old and a 6mo old).  They are **amazing** and occupy so much of my time and brain.  So I will likely talk about them often. I am also into Chicago sports so I may arm-chair GM a few things.
+
+  </Paragraph>
+  <Paragraph>
+
+I also tend to think high-level at the office.  So there may be some posts where I go into details about certain aspects of business, working in an engineering department, or things that I have experienced that worked/didn't work.  My only goal is to avoid being political and controversial at all costs! I have sworn off engaging people on social media because I don't think we are great, as a society, at it.
+
+  </Paragraph>
+  <Paragraph>
+
+To that end, **welcome!** I hope you stay a while!
+
+  </Paragraph>
+  <Signature/>
 </Section>
 

@@ -97,10 +97,13 @@
   .token.constant,
   .token.number,
   .token.atrule {
+    font-weight: 700;
     color: $color-highlight-370;
   }
 
   .token.keyword {
+    font-weight: 700;
+    font-style: italic;
     color: $color-highlight-625;
   }
 
@@ -120,12 +123,14 @@
   .token.regex,
   .token.attr-value,
   .token.attr-value > .token.punctuation {
+    font-style: italic;
     color: $color-highlight-400;
   }
 
   .token.variable,
   .token.operator,
   .token.function {
+    font-weight: 700;
     color: $color-highlight-525;
   }
 

@@ -10,7 +10,7 @@
   $undercurl: underline wavy $color-highlight-500 1px;
 
   a {
-    font-weight: 600;
+    font-weight: 800;
     position: relative;
     display: inline-block;
     color: $color-highlight-525;
