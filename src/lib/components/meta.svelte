@@ -37,10 +37,6 @@
       display: inline-block;
     }
 
-    .first {
-      margin-right: $spacing-level-200;
-    }
-
     span {
       font-weight: 600;
       font-size: 0.8rem;
@@ -58,6 +54,10 @@
 
     .stuffs {
       background-color: $color-highlight-600;
+    }
+
+    .first {
+      background-color: $color-highlight-370;
     }
   }
 </style>

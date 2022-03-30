@@ -12,12 +12,7 @@
 </script>
 
 <script lang="ts">
-  import Link from "$lib/elements/link.svelte";
-  import Teaser from "$lib/elements/teaser.svelte";
-  import PostDate from "$lib/components/date.svelte";
-  import Heading from "$lib/elements/heading.svelte";
-  import Section from "$lib/components/section.svelte";
-  import Paragraph from "$lib/elements/paragraph.svelte";
+  import { Link, Date, Teaser, Section, Heading, Paragraph } from "$lib";
 
   interface Metadata {
     date: number;
@@ -47,7 +42,7 @@
 
 {#if posts.main}
   <Section>
-    <PostDate stamp={posts.main.date} />
+    <Date stamp={posts.main.date} />
     <Heading>{posts.main.title}</Heading>
     <Teaser>{posts.main.teaser}</Teaser>
     <Paragraph>&hellip;</Paragraph>
