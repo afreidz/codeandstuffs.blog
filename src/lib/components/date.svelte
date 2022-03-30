@@ -13,22 +13,23 @@
 </script>
 
 <em>
-  {#if isNew}<span>New</span>{/if}
-  Posted: {formatted}
+  {#if isNew}<span>new</span>{/if}
+  {formatted}
 </em>
 
 <style lang="scss">
   @use "$lib/tokens/scss" as *;
 
   em {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     display: inline-block;
     color: $color-neutral-300;
-    margin-bottom: $spacing-level-400;
   }
 
   span {
+    line-height: 1.5;
     font-weight: 600;
+    font-size: 0.9rem;
     border-radius: 0.3rem;
     display: inline-block;
     color: $color-neutral-100;

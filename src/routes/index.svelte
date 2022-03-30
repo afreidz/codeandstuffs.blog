@@ -42,7 +42,9 @@
 
 {#if posts.main}
   <Section>
-    <Date stamp={posts.main.date} />
+    <div class="date">
+      <Date stamp={posts.main.date} />
+    </div>
     <Heading>{posts.main.title}</Heading>
     <Teaser>{posts.main.teaser}</Teaser>
     <Paragraph>&hellip;</Paragraph>
@@ -57,3 +59,11 @@
     {/each}
   </ul>
 {/if}
+
+<style lang="scss">
+  @use "$lib/tokens/scss" as *;
+
+  .date {
+    margin-bottom: $spacing-level-400;
+  }
+</style>
