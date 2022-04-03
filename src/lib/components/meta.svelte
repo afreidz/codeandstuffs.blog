@@ -8,10 +8,10 @@
       Feeling: <slot name="feeling" />
     </li>
     <li>
-      Tags: <slot name="tags" />
+      Appreciation: <slot name="appreciations" />
     </li>
     <li>
-      Appreciation: <slot name="appreciations" />
+      Tags: <slot name="tags" />
     </li>
   </ul>
 </Paragraph>

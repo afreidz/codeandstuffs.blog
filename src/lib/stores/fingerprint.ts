@@ -4,8 +4,11 @@ import fp from "@fingerprintjs/fingerprintjs";
 const fingerprint = writable(null);
 
 if (browser) {
-  const { visitorId } = await (await fp.load()).get();
-  fingerprint.set(visitorId);
+  fp.load()
+    .then((agent) => agent.get())
+    .then((result) => {
+      fingerprint.set(result.visitorId);
+    });
 }
 
 export default fingerprint;

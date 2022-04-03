@@ -12,7 +12,7 @@
 </script>
 
 <script lang="ts">
-  import { Link, Date, Teaser, Section, Heading, Paragraph } from "$lib";
+  import { Link, Date, Teaser, Section, Heading } from "$lib";
 
   interface Metadata {
     date: number;
@@ -42,12 +42,9 @@
 
 {#if posts.main}
   <Section>
-    <div class="date">
-      <Date stamp={posts.main.date} />
-    </div>
+    <Date stamp={posts.main.date} />
     <Heading>{posts.main.title}</Heading>
     <Teaser>{posts.main.teaser}</Teaser>
-    <Paragraph>&hellip;</Paragraph>
     <Link href={`posts/${posts.main.slug}`}>Read More</Link>
   </Section>
 {/if}
@@ -59,11 +56,3 @@
     {/each}
   </ul>
 {/if}
-
-<style lang="scss">
-  @use "$lib/tokens/scss" as *;
-
-  .date {
-    margin-bottom: $spacing-level-400;
-  }
-</style>

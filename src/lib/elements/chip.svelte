@@ -19,6 +19,10 @@
     background-color: $color-neutral-300;
   }
 
+  .new {
+    background-color: $color-highlight-400;
+  }
+
   .code {
     background-color: $color-highlight-500;
   }
