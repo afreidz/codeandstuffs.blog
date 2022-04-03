@@ -8,6 +8,5 @@
     text-align: right;
     font-style: italic;
     color: $color-highlight-700;
-    font-family: "IBM Plex Mono", monospace;
   }
 </style>

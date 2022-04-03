@@ -14,7 +14,7 @@
 
 <em>
   {#if isNew}<span>new</span>{/if}
-  {formatted}
+  Posted: {formatted}
 </em>
 
 <style lang="scss">
@@ -24,6 +24,7 @@
     font-size: 0.9rem;
     display: inline-block;
     color: $color-neutral-300;
+    margin-bottom: $spacing-level-200;
   }
 
   span {
