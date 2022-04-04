@@ -59,7 +59,7 @@ teaser: |
 </script>
 
 <Section>
-  <Date stamp={1649007269434} />
+  <Date stamp={date} />
   <Heading level={2}>{title}</Heading>
   <Meta>
     <span slot="feeling">{feeling}</span>
