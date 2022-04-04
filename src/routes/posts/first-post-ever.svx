@@ -16,6 +16,10 @@ teaser: |
 
 <svelte:head>
   <title>{title} - Code and Stuffs</title>
+  <meta name="description" content={teaser} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={teaser} />
+  <meta property="og:url" content="https://codeandstuffs.blog/posts/{slug}" />
 </svelte:head>
 
 <script lang="ts">
@@ -32,30 +36,6 @@ teaser: |
     Signature,
     Appreciation,
   } from "$lib";
-  import fp from "$lib/stores/fingerprint";
-
-  let appreciationDisabled = false;
-
-  $: {
-    if(appreciations && $fp) {
-      appreciationDisabled = !!appreciations.find(a => a.fingerprint === $fp);
-    }
-  }
-
-  let appreciations = [];
-  export { appreciations };
-</script>
-
-<script lang="ts" context="module">
-  export async function load({ fetch }) {
-    const resp = await fetch("/posts/first-post-ever/appreciate");
-    const appreciations = await resp.json();
-
-    return {
-      status: resp.status,
-      props: { appreciations },
-    };
-  }
 </script>
 
 <Section>
@@ -69,7 +49,7 @@ teaser: |
       {/each}
     </span>
     <span slot="appreciations">
-      <Appreciation disabled={appreciationDisabled} score={appreciations.length} />
+      <Appreciation post={slug} />
     </span>
   </Meta>
   <Teaser>{teaser}</Teaser>
@@ -131,12 +111,12 @@ describe("my life", () => {
   <Heading level={3}>What to expect from the stuffs</Heading>
   <Paragraph>
 
-There is literally no telling where my stream of consciousness will take me. So be prepared for some really off-topic stuff. I am a recent new father, at the time of this post I have 2 boys (a ~2yr old and a 6mo old). They are **amazing** and occupy so much of my time and brain. So I will likely talk about them often. I am also into Chicago sports so I may arm-chair GM a few things.
+There is literally no telling where my stream of consciousness will take me. So be prepared for some really off-topic stuff. I am a recent new father, at the time of this post I have 2 boys (2yr & 6mo). They are **amazing** and occupy so much of my time and brain. So I will likely talk about them often. I am also into Chicago sports so I may arm-chair GM a few things.
 
   </Paragraph>
   <Paragraph>
 
-I also tend to think high-level at the office. So there may be some posts where I go into details about certain aspects of business, working in an engineering department, or things that I have experienced that worked/didn't work. My only goal is to avoid being political and controversial at all costs! I have sworn off engaging people on social media because I don't think we are great, as a society, at it.
+I also tend to think high-level at the office. So there may be some posts where I go into details about certain aspects of business, working in an engineering department, or things that I have experienced that have-worked/didn't-work. My only goal is to avoid being political and controversial at all costs! I have sworn off engaging people on social media because I don't think we are great, as a society, at it.
 
   </Paragraph>
   <Paragraph>
@@ -146,7 +126,7 @@ To that end, **welcome!** I hope you stay a while!
   </Paragraph>
 
   <Paragraph>
-    <Appreciation metaView={false} disabled={appreciationDisabled} /> 
+    <Appreciation metaView={false} post={slug} /> 
   </Paragraph>
   
   <Signature/>
