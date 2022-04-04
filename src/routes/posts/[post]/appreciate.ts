@@ -2,12 +2,16 @@ import db from "$lib/db";
 
 export async function get({ params }) {
   const { post } = params;
-  console.log(post, db.appreciations, db.appreciation);
-  const appreciations = await db.appreciation.findMany({ where: { post } });
 
-  return {
-    body: appreciations,
-  };
+  try {
+    const body = await db.appreciation.findMany({ where: { post } });
+    return { status: 200, body };
+  } catch (err) {
+    return {
+      status: 500,
+      body: { msg: err.toString() },
+    };
+  }
 }
 
 export async function post({ params, request }) {

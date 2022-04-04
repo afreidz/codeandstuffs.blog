@@ -1,4 +1,5 @@
 <script lang="ts">
+  /// <reference path="$lib/types/confetti.d.ts">
   import { Chip } from "$lib";
   import confetti from "canvas-confetti";
   import fp from "$lib/stores/fingerprint";
