@@ -3,15 +3,28 @@
   import { Chip } from "$lib";
   import confetti from "canvas-confetti";
   import fp from "$lib/stores/fingerprint";
+  import type Appreciation from "$lib/types/appreciation";
+  import { score, appreciations, disabled } from "$lib/stores/appreciations";
 
-  let disabled = false;
   let metaView = true;
-  let score = 0;
+  let post = null;
+  let url = "";
 
-  async function appreciate() {
-    disabled = true;
-    const url = `${window.location}/appreciate`;
+  $: {
+    if (post) {
+      url = `/posts/${post}/appreciate`;
+    }
+    if ($fp && post && !$appreciations) {
+      (async () => {
+        $appreciations = await (await fetch(url)).json();
+        $disabled = !!$appreciations.find((a: Appreciation) => a.fingerprint === $fp);
+        $score = $appreciations.length;
+      })();
+    }
+  }
 
+  async function appreciate(e: MouseEvent) {
+    $disabled = true;
     try {
       await (
         await fetch(url, {
@@ -20,24 +33,30 @@
           body: JSON.stringify({ fingerprint: $fp }),
         })
       ).json();
-      score += 1;
-      confetti();
+      $score += 1;
+      confetti({
+        origin: { x: e.clientX / e.view.innerWidth, y: e.clientY / e.view.innerHeight },
+      });
     } catch (err) {
       console.error(err);
-      disabled = false;
+      $disabled = false;
     }
   }
 
-  export { score, metaView, disabled };
+  export { post, metaView };
 </script>
 
 <Chip type="appreciate">
-  <button {disabled} on:click={appreciate}>
-    <span>♥</span>
-    {#if metaView}
-      <em>{score}</em>
-    {:else if !disabled}Appreciate{/if}
-  </button>
+  {#await $appreciations}
+    loading...
+  {:then}
+    <button disabled={$disabled} on:click={appreciate} title="appreciate this post">
+      <i />
+      {#if metaView}
+        <em>{$score}</em>
+      {:else if !$disabled}Appreciate{/if}
+    </button>
+  {/await}
 </Chip>
 
 <style lang="scss">
@@ -47,9 +66,15 @@
     cursor: pointer;
     padding: 0 $spacing-level-50;
 
-    &:hover span,
-    &:disabled span {
-      color: $color-highlight-200;
+    i::after {
+      content: "🤍";
+      display: inline-block;
+      margin-right: $spacing-level-50;
+    }
+
+    &:hover i::after,
+    &:disabled i::after {
+      content: "❤️";
     }
   }
 </style>
