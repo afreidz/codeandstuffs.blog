@@ -16,6 +16,7 @@ teaser: |
 
 <svelte:head>
   <title>{title} - Code and Stuffs</title>
+  <meta name="description" content={teaser} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={teaser} />
   <meta property="og:url" content="https://codeandstuffs.blog/posts/{slug}" />
