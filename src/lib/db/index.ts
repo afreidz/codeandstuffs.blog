@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-let prisma;
+let prisma: PrismaClient;
 
 if (import.meta.env.PROD) {
   prisma = new PrismaClient();
