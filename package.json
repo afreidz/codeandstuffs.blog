@@ -23,7 +23,7 @@
     "@fontsource/ibm-plex-sans": "^4.5.7",
     "@fontsource/permanent-marker": "^4.5.3",
     "@fontsource/roboto-serif": "^4.5.4",
-    "@prisma/client": "^3.11.1",
+    "@prisma/client": "^3.12.0-dev.46",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
