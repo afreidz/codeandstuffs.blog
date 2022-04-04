@@ -2,7 +2,7 @@ import db from "$lib/db";
 
 export async function get({ params }) {
   const { post } = params;
-
+  console.log(post, db.appreciations, db.appreciation);
   const appreciations = await db.appreciation.findMany({ where: { post } });
 
   return {
