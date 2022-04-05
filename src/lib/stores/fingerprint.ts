@@ -1,14 +1,12 @@
+import "$lib/types/clientjs.d.ts";
 import { browser } from "$app/env";
+import { ClientJS } from "clientjs/dist/client.base.min";
 import { writable } from "svelte/store";
-import fp from "@fingerprintjs/fingerprintjs";
 const fingerprint = writable(null);
 
 if (browser) {
-  fp.load()
-    .then((agent) => agent.get())
-    .then((result) => {
-      fingerprint.set(result.visitorId);
-    });
+  const client = new ClientJS();
+  fingerprint.set(client.getFingerprint());
 }
 
 export default fingerprint;

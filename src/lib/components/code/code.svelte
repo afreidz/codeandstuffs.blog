@@ -1,7 +1,7 @@
 <script lang="ts">
   let maximized = false;
-  let portal: HTMLElement;
   let code: HTMLElement;
+  let portal: HTMLElement;
 
   function toggle() {
     if (!maximized) {
@@ -13,6 +13,16 @@
     }
   }
 </script>
+
+<svelte:head>
+  {#if maximized}
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
+  {/if}
+</svelte:head>
 
 <div class="portal" bind:this={portal}>
   <div class="codeblock" bind:this={code} class:maximized>

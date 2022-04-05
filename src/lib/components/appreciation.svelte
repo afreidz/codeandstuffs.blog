@@ -10,17 +10,14 @@
   let post = null;
   let url = "";
 
-  $: {
-    if (post) {
-      url = `/posts/${post}/appreciate`;
-    }
-    if ($fp && post && !$appreciations) {
-      (async () => {
-        $appreciations = await (await fetch(url)).json();
-        $disabled = !!$appreciations.find((a: Appreciation) => a.fingerprint === $fp);
-        $score = $appreciations.length;
-      })();
-    }
+  $: if (post) url = `/posts/${post}/appreciate`;
+
+  $: if ($fp && post && !$appreciations) {
+    (async () => {
+      $appreciations = await (await fetch(url)).json();
+      $disabled = !!$appreciations.find((a: Appreciation) => a.fingerprint === $fp);
+      $score = $appreciations.length;
+    })();
   }
 
   async function appreciate(e: MouseEvent) {

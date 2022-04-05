@@ -1,16 +1,19 @@
 <script lang="ts">
   let level = 2;
+  let jump: string | null = null;
 
-  export { level };
+  export { level, jump };
 </script>
 
 {#if level === 2}
-  <h2>
+  <h2 id={jump}>
     <slot />
+    <a href="#{jump}">🔗</a>
   </h2>
 {:else if level === 3}
-  <h3>
+  <h3 id={jump}>
     <slot />
+    <a href="#{jump}">🔗</a>
   </h3>
 {/if}
 
@@ -23,6 +26,13 @@
     font-weight: 600;
     margin-bottom: $spacing-level-400;
     font-family: "Roboto Serif", serif;
+
+    > a {
+      display: none;
+    }
+    &:hover > a {
+      display: initial;
+    }
   }
 
   h3 {
@@ -32,5 +42,19 @@
     padding-top: $spacing-level-200;
     margin-bottom: $spacing-level-200;
     font-family: "Roboto Serif", serif;
+
+    > a {
+      display: none;
+    }
+    &:hover > a {
+      display: initial;
+    }
+  }
+
+  @media (hover: none) {
+    h2 > a,
+    h3 > a {
+      display: initial;
+    }
   }
 </style>

@@ -1,5 +1,5 @@
 <script>
-  import Logo from "$lib/elements/logo.svelte";
+  import { Logo } from "$lib";
   import "@fontsource/ibm-plex-mono/400.css";
   import "@fontsource/ibm-plex-mono/700.css";
   import "@fontsource/ibm-plex-mono/400-italic.css";
@@ -29,6 +29,10 @@
       background-color: $color-neutral-900;
     }
 
+    body {
+      margin-top: -15px;
+    }
+
     strong {
       font-weight: 800;
       color: $color-highlight-300;
@@ -36,10 +40,15 @@
   }
 
   header {
-    top: 0;
+    top: -15px;
     z-index: 1;
     position: sticky;
     padding: $spacing-level-200;
     background-color: $color-neutral-900;
+    transform: skewY(-1 * $skew-level-100);
+
+    & :global(h1) {
+      transform: skewY($skew-level-100);
+    }
   }
 </style>
