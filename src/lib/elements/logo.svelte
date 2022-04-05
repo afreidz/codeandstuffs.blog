@@ -9,6 +9,7 @@
 
   h1 {
     font-family: "Permanent Marker", cursive;
+    padding: $spacing-level-200;
     font-size: 38px;
     line-height: 1;
 

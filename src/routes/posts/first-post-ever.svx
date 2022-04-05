@@ -15,6 +15,7 @@ teaser: |
 ---
 
 <svelte:head>
+
   <title>{title} - Code and Stuffs</title>
   <meta name="description" content={teaser} />
   <meta property="og:title" content={title} />
@@ -61,7 +62,7 @@ I am a <Link href="https://linkedin.com/in/andyfreidenfelds">software engineer</
   <Paragraph>
     The JavaScript ecosystem and community is already full.  So if you don't need another source of noise, I don't blame you.  I can offer no sales pitch for this blog.  I hope it becomes a useful tool for my own catharsis primarily, and a resource for others secondarily.
   </Paragraph>
-  <Heading level={3}>What to expect from the code</Heading>
+  <Heading level={3} jump="expect-code">What to expect from the code</Heading>
   <Paragraph>
     What kinds of things can you expect from this site? Code examples are probably obvious.  They will look like this:
   </Paragraph>
@@ -108,7 +109,7 @@ describe("my life", () => {
 </Section>
 
 <Section>
-  <Heading level={3}>What to expect from the stuffs</Heading>
+  <Heading level={3} jump="expect-stuffs">What to expect from the stuffs</Heading>
   <Paragraph>
 
 There is literally no telling where my stream of consciousness will take me. So be prepared for some really off-topic stuff. I am a recent new father, at the time of this post I have 2 boys (2yr & 6mo). They are **amazing** and occupy so much of my time and brain. So I will likely talk about them often. I am also into Chicago sports so I may arm-chair GM a few things.

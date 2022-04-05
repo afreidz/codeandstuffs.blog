@@ -4,7 +4,11 @@ export async function get({ params }) {
   const { post } = params;
 
   try {
-    const body = await db.appreciation.findMany({ where: { post } });
+    const data = await db.appreciation.findMany({ where: { post } });
+    const body = JSON.stringify(data, (_, v) => {
+      return typeof v === "bigint" ? parseInt(`${v}`) : v;
+    });
+
     return { status: 200, body };
   } catch (err) {
     return {
