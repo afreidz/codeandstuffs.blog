@@ -12,16 +12,8 @@
 </script>
 
 <script lang="ts">
-  import { Link, Date, Teaser, Section, Heading } from "$lib";
-
-  interface Metadata {
-    date: number;
-    slug: string;
-    title: string;
-    tags: string[];
-    teaser: string;
-    feeling: string;
-  }
+  import type { Metadata } from "$lib/types/post";
+  import { Link, Date, Teaser, Section, Heading, Card } from "$lib";
 
   interface Posts {
     main: Metadata;
@@ -43,16 +35,30 @@
 {#if posts.main}
   <Section>
     <Date stamp={posts.main.date} />
-    <Heading>{posts.main.title}</Heading>
+    <Heading><a href={`posts/${posts.main.slug}`}>{posts.main.title}</a></Heading>
     <Teaser>{posts.main.teaser}</Teaser>
     <Link href={`posts/${posts.main.slug}`}>Read More</Link>
   </Section>
 {/if}
 
 {#if posts.others}
-  <ul>
-    {#each posts.others as post}
-      <li><a href={`posts/${post.slug}`}>{post.title}</a></li>
-    {/each}
-  </ul>
+  <Section invert={true}>
+    <em>Other Posts</em>
+    <ul>
+      {#each posts.others as post}
+        <li>
+          <Card {post} />
+        </li>
+      {/each}
+    </ul>
+  </Section>
 {/if}
+
+<style lang="scss">
+  @use "$lib/tokens/scss" as *;
+
+  em {
+    display: block;
+    margin-bottom: $spacing-level-400;
+  }
+</style>

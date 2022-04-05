@@ -1,13 +1,16 @@
 <script lang="ts">
   let invert = false;
+  let bleed = false;
 
-  export { invert };
+  export { invert, bleed };
 </script>
 
 <section class:invert>
-  <div>
+  {#if bleed}
     <slot />
-  </div>
+  {:else}
+    <div><slot /></div>
+  {/if}
 </section>
 
 <style lang="scss">

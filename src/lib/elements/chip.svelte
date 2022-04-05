@@ -27,15 +27,18 @@
     background-color: $color-highlight-500;
   }
 
-  .stuffs {
+  .stuffs,
+  .svelte {
     background-color: $color-highlight-600;
   }
 
-  .first {
+  .first,
+  .design-system {
     background-color: $color-highlight-370;
   }
 
-  .appreciate {
+  .appreciate,
+  .react {
     background-color: $color-highlight-700;
   }
 </style>

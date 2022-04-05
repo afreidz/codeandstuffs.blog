@@ -8,12 +8,12 @@
 {#if level === 2}
   <h2 id={jump}>
     <slot />
-    <a href="#{jump}">🔗</a>
+    {#if jump}<a href="#{jump}">🔗</a>{/if}
   </h2>
 {:else if level === 3}
   <h3 id={jump}>
     <slot />
-    <a href="#{jump}">🔗</a>
+    {#if jump}<a href="#{jump}">🔗</a>{/if}
   </h3>
 {/if}
 

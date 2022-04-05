@@ -1,5 +1,6 @@
 export { default as Date } from "$lib/components/date.svelte";
 export { default as Meta } from "$lib/components/meta.svelte";
+export { default as Card } from "$lib/components/card.svelte";
 export { default as Code } from "$lib/components/code/code.svelte";
 export { default as Section } from "$lib/components/section.svelte";
 export { default as Appreciation } from "$lib/components/appreciation.svelte";
