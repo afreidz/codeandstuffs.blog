@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import PostContext from "$contexts/post";
 import * as Components from "$components";
@@ -29,6 +30,13 @@ export default function Post({ source }) {
 
     return (
     <PostContext.Provider value={{ post, setPost, likes, setLikes }}>
+      <Head>
+        <title>{source.frontmatter.title} - Code and Stuffs</title>
+        <meta name="description" content={source.frontmatter.teaser} />
+        <meta property="og:title" content={source.frontmatter.title} />
+        <meta property="og:description" content={source.frontmatter.teaser} />
+        <meta property="og:url" content={`https://codeandstuffs.blog/posts/${post}`} />
+      </Head>
       <Components.Section>
         <Components.Meta {...source.frontmatter} />
       </Components.Section>

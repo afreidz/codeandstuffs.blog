@@ -5,6 +5,17 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="shortcut icon" href="/favicon.png" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
+        <meta property="og:site_name" content="codeandstuffs.blog" />
+        <meta
+          property="og:image"
+          content="https://codeandstuffs.blog/logo.png"
+        />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <body>
         <Main />

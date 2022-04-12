@@ -7,10 +7,10 @@ import "the-new-css-reset/css/reset.css";
 import "@fontsource/permanent-marker";
 
 import "$styles/global.scss";
+import Head from "next/head";
 import { useState } from "react";
 import { Logo } from "$components";
-import AppContext from "$contexts/app"; 
-
+import AppContext from "$contexts/app";
 
 function App({ Component, pageProps }) {
   const [fingerprint, setFingerprint] = useState(null);
@@ -25,6 +25,9 @@ function App({ Component, pageProps }) {
 
   return (
     <AppContext.Provider value={{ fingerprint, setFingerprint }}>
+      <Head>
+        <title>Code and Stuffs</title>
+      </Head>
       <header className="logo">
         <Logo />
       </header>
