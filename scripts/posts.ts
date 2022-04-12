@@ -15,7 +15,10 @@ export async function getByLimit(limit: number) {
     await Promise.all(
       files.map(async (file) => {
         if (file.name.includes("[slug]")) return;
-        return await parsePost(file.name);
+        const parsed = await parsePost(file.name);
+        if (parsed.frontmatter.draft && process.env.NODE_ENV !== "development")
+          return;
+        return parsed;
       })
     )
   )

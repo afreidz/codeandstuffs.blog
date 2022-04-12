@@ -14,8 +14,6 @@ export default function Document() {
           property="og:image"
           content="https://codeandstuffs.blog/logo.png"
         />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <body>
         <Main />

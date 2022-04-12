@@ -29,7 +29,7 @@ export default function Post({ source }) {
   const [likes, setLikes] = useState(source.scope.likes);
 
     return (
-    <PostContext.Provider value={{ post, setPost, likes, setLikes }}>
+    <>
       <Head>
         <title>{source.frontmatter.title} - Code and Stuffs</title>
         <meta name="description" content={source.frontmatter.teaser} />
@@ -37,13 +37,15 @@ export default function Post({ source }) {
         <meta property="og:description" content={source.frontmatter.teaser} />
         <meta property="og:url" content={`https://codeandstuffs.blog/posts/${post}`} />
       </Head>
-      <Components.Section>
-        <Components.Meta {...source.frontmatter} />
-      </Components.Section>
-      <MDXRemote {...source} components={components} />
-      <Components.Section>
-        <Components.Like/>
-      </Components.Section>
-    </PostContext.Provider>
+      <PostContext.Provider value={{ post, setPost, likes, setLikes }}>
+        <Components.Section>
+          <Components.Meta {...source.frontmatter} />
+        </Components.Section>
+        <MDXRemote {...source} components={components} />
+        <Components.Section>
+          <Components.Like/>
+        </Components.Section>
+      </PostContext.Provider>
+    </>
   )
 }

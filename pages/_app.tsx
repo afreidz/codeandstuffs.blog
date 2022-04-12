@@ -24,15 +24,17 @@ function App({ Component, pageProps }) {
   }
 
   return (
-    <AppContext.Provider value={{ fingerprint, setFingerprint }}>
+    <>
       <Head>
         <title>Code and Stuffs</title>
       </Head>
-      <header className="logo">
-        <Logo />
-      </header>
-      <Component {...pageProps} />
-    </AppContext.Provider>
+      <AppContext.Provider value={{ fingerprint, setFingerprint }}>
+        <header className="logo">
+          <Logo />
+        </header>
+        <Component {...pageProps} />
+      </AppContext.Provider>
+    </>
   );
 }
 
