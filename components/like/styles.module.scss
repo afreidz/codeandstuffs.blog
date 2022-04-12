@@ -1,0 +1,30 @@
+@use "$tokens" as *;
+
+.like {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0.3em;
+  background-color: transparent;
+  border: 1px solid $color-highlight-700;
+  padding: $spacing-level-100 $spacing-level-200;
+
+  i {
+    font-size: 0.9rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: $color-highlight-700;
+    margin-right: $spacing-level-200;
+  }
+
+  strong {
+    opacity: 0.5;
+    font-weight: 800;
+    display: inline-block;
+    margin-left: $spacing-level-100;
+  }
+
+  &:hover, &:disabled {
+    background-color: $color-highlight-700;
+  }
+}

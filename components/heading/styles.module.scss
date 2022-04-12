@@ -1,0 +1,47 @@
+@use "$tokens" as *;
+
+h2.heading {
+  font-size: 50px;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: $spacing-level-400;
+  font-family: "Roboto Serif", serif;
+
+  > a {
+    display: none;
+  }
+  &:hover > a {
+    display: initial;
+  }
+}
+
+h3.heading {
+  font-size: 25px;
+  line-height: 1.1;
+  font-weight: 600;
+  padding-top: $spacing-level-200;
+  margin-bottom: $spacing-level-200;
+  font-family: "Roboto Serif", serif;
+
+  > a {
+    display: none;
+    margin-left: $spacing-level-100;
+  }
+  &:hover > a {
+    display: initial;
+  }
+}
+
+@media (hover: none) {
+  h2.heading > a,
+  h3.heading > a {
+    display: initial;
+  }
+}
+
+h4.heading {
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: $spacing-level-200;
+}

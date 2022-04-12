@@ -1,50 +1,37 @@
 {
-  "name": "codeandstuffs.blog",
-  "version": "0.0.1",
-  "enginesStrict": true,
-  "engines": {
-    "node": "14.x"
-  },
+  "name": "codeandstuffs",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "prepare": "svelte-kit sync",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-    "vercel-build": "prisma generate && prisma migrate deploy && npm run build && npm run vercel-postbuild",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "vercel-postbuild": "cp node_modules/@prisma/engines/*query* .vercel_build_output/functions/node/render/ && cp prisma/schema.prisma .vercel_build_output/functions/node/render/"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^3.12.0",
+    "next": "12.1.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@fontsource/ibm-plex-mono": "^4.5.6",
-    "@fontsource/ibm-plex-sans": "^4.5.7",
+    "@fontsource/ibm-plex-mono": "^4.5.7",
     "@fontsource/permanent-marker": "^4.5.3",
     "@fontsource/roboto-serif": "^4.5.4",
-    "@prisma/client": "^3.12.0-dev.46",
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/kit": "next",
-    "@typescript-eslint/eslint-plugin": "^5.10.1",
-    "@typescript-eslint/parser": "^5.10.1",
+    "@mapbox/rehype-prism": "^0.8.0",
+    "@types/clientjs": "^0.1.0",
+    "@types/node": "^17.0.23",
     "canvas-confetti": "^1.5.1",
+    "classnames": "^2.3.1",
     "clientjs": "^0.2.1",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte3": "^3.2.1",
-    "husky": "^7.0.4",
-    "mdsvex": "^0.10.5",
-    "p-map": "^5.3.0",
-    "prettier": "^2.5.1",
-    "prettier-plugin-svelte": "^2.5.0",
-    "sass": "^1.49.9",
-    "svelte": "^3.44.0",
-    "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.10.1",
+    "eslint": "8.12.0",
+    "eslint-config-next": "12.1.4",
+    "next-mdx-remote": "^4.0.2",
+    "prisma": "^3.12.0",
+    "rehype-slug": "^5.0.1",
+    "sass": "^1.49.11",
     "the-new-css-reset": "^1.5.1",
-    "tslib": "^2.3.1",
-    "typescript": "~4.6.2"
-  },
-  "type": "module"
+    "typed-scss-modules": "^6.2.0"
+  }
 }

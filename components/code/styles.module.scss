@@ -1,0 +1,128 @@
+@use "sass:color";
+@use "$tokens" as *;
+
+.codeblock {
+  border-radius: 0.3rem;
+  box-shadow: $shadow-500;
+  padding: $spacing-level-150;
+  margin: $spacing-level-200 0;
+  background-color: $color-neutral-900;
+
+  &.maximized {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    position: fixed;
+    border-radius: 0;
+    margin-bottom: 0px;
+  }
+
+  header {
+    font-size: 0.8rem;
+    text-align: right;
+    margin-bottom: -1 * $spacing-level-150;
+  }
+
+  button {
+    color: $color-highlight-400;
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    tab-size: 2;
+    hyphens: none;
+    direction: ltr;
+    white-space: pre;
+    text-align: left;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 0.8rem;
+    word-break: normal;
+    word-spacing: normal;
+    color: $color-neutral-100;
+    background: $color-neutral-900;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  code[class*="language-"]::selection,
+  code[class*="language-"] *::selection,
+  pre[class*="language-"] *::selection {
+    color: inherit;
+    background: color.adjust($color-highlight-500, $alpha: -0.6);
+  }
+
+  pre[class*="language-"] {
+    overflow: auto;
+    padding: $spacing-level-200;
+    margin: $spacing-level-100 0;
+    margin-right: $spacing-level-200;
+  }
+
+  :not(pre) > code[class*="language-"] {
+    padding: 0.2em 0.3em;
+    white-space: normal;
+  }
+
+  :global {
+    .token.comment,
+    .token.prolog,
+    .token.cdata {
+      color: $color-neutral-800;
+    }
+
+    .token.doctype,
+    .token.punctuation,
+    .token.entity {
+      color: $color-neutral-300;
+    }
+
+    .token.attr-name,
+    .token.class-name,
+    .token.boolean,
+    .token.constant,
+    .token.number,
+    .token.atrule {
+      font-weight: 700;
+      color: $color-highlight-370;
+    }
+
+    .token.keyword {
+      font-weight: 700;
+      font-style: italic;
+      color: $color-highlight-625;
+    }
+
+    .token.property,
+    .token.tag,
+    .token.symbol,
+    .token.deleted,
+    .token.important {
+      color: $color-highlight-225;
+    }
+
+    .token.selector,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted,
+    .token.regex,
+    .token.attr-value,
+    .token.attr-value > .token.punctuation {
+      font-style: italic;
+      color: $color-highlight-400;
+    }
+
+    .token.variable,
+    .token.operator,
+    .token.function {
+      font-weight: 700;
+      color: $color-highlight-525;
+    }
+
+    .token.url {
+      color: $color-highlight-725;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@use "$tokens" as *;
+
+a.post {
+  display: flex;
+  margin: $spacing-level-200 0;
+
+  header {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+ul.metaList {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: $spacing-level-400;
+
+  & > li {
+    margin-bottom: $spacing-level-50;
+  }
+}
+
+.tags {
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.metaHeading.metaList {
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: $spacing-level-100;
+}
+
+span.like {
+  font-size: 0.9rem;
+  padding-right: $spacing-level-100;
+
+  em {
+    font-size: 0.7rem;
+    display: inline-block;
+    margin-right: $spacing-level-50;
+  }
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  border-radius: 0.3rem;
+  padding: $spacing-level-200;
+  margin-right: $spacing-level-200;
+  border: 1px solid $color-neutral-300;
+}
+
+.readMore {
+  margin-top: $spacing-level-400;
+}

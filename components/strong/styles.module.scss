@@ -1,0 +1,6 @@
+@use "$tokens" as *;
+
+.strong {
+  font-weight: 800;
+  color: $color-highlight-300;
+}

@@ -1,0 +1,36 @@
+@use "$tokens" as *;
+
+.chip {
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  display: inline-block;
+  vertical-align: baseline;
+  color: $color-neutral-100;
+  padding: 0 $spacing-level-50;
+  margin-right: $spacing-level-50;
+  background-color: $color-neutral-300;
+}
+
+.new {
+  background-color: $color-highlight-400;
+}
+
+.code {
+  background-color: $color-highlight-500;
+}
+
+.stuffs,
+.svelte {
+  background-color: $color-highlight-600;
+}
+
+.first,
+.design-system {
+  background-color: $color-highlight-370;
+}
+
+.like,
+.react {
+  background-color: $color-highlight-700;
+}

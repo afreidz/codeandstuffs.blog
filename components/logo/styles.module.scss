@@ -1,0 +1,25 @@
+@use "$tokens" as *;
+
+.heading {
+  font-family: "Permanent Marker", cursive;
+  padding: $spacing-level-200;
+  font-size: 38px;
+  line-height: 1;
+
+  @include sm {
+    & {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+
+  @include md {
+    & {
+      font-size: 30px;
+    }
+  }
+}
+
+.heading span {
+  color: $color-highlight-500;
+}
