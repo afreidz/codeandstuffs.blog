@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const cx = classnames.bind(styles);
 
 export default function Heading(props) {
-  const { as, children, ...rest } = props;
+  const { as, children, top = true, ...rest } = props;
   const [jump, setJump] = useState(null);
   const Tag = as || "h2";
 
@@ -17,8 +17,17 @@ export default function Heading(props) {
 
   return (
     <Tag {...rest} className={classList}>
+      {!!top && (
+        <a className={styles.top} href="#top">
+          ⇧
+        </a>
+      )}
       {children}
-      {!!jump && <a href={jump}>🔗</a>}
+      {!!jump && (
+        <a className={styles.jump} href={jump}>
+          🔗
+        </a>
+      )}
     </Tag>
   );
 }

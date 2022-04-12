@@ -37,8 +37,17 @@ export default function Meta(props: Props) {
         </figure>
       )}
       <header>
-        {variant !== "search" && <Date stamp={date} />}
-        <Heading as={titleTag}>{title}</Heading>
+        <div className={styles.date}>
+          {variant !== "search" && <Date stamp={date} />}
+          {!["search", "teaser"].some((v) => v === variant) && (
+            <Link className={styles.home} href="/">
+              ← Home
+            </Link>
+          )}
+        </div>
+        <Heading as={titleTag} top={false}>
+          {title}
+        </Heading>
         {variant === "search" && <Date stamp={date} />}
       </header>
       {!variant && (
@@ -46,13 +55,13 @@ export default function Meta(props: Props) {
           <ul className={styles.metaList}>
             {!!feeling && (
               <li>
-                <Heading as="h4" className={headingClass}>
+                <Heading as="h4" className={headingClass} top={false}>
                   feeling: {feeling}
                 </Heading>
               </li>
             )}
             <li>
-              <Heading as="h4" className={headingClass}>
+              <Heading as="h4" className={headingClass} top={false}>
                 likes:
               </Heading>
               <Chip className={styles.like} type="like">
@@ -63,7 +72,7 @@ export default function Meta(props: Props) {
             </li>
             {tags.length && (
               <li>
-                <Heading as="h4" className={headingClass}>
+                <Heading as="h4" className={headingClass} top={false}>
                   tags:
                 </Heading>
                 <ul className={styles.tags}>

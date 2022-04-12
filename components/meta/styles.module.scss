@@ -9,7 +9,17 @@ a.post {
     align-items: flex-end;
     flex-direction: column;
     justify-content: flex-start;
+
   }
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home {
+  font-size: 1.2rem;
 }
 
 ul.metaList {

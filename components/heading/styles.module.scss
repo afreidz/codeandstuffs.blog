@@ -1,47 +1,64 @@
 @use "$tokens" as *;
 
-h2.heading {
-  font-size: 50px;
+.heading {
   line-height: 1.1;
   font-weight: 600;
-  margin-bottom: $spacing-level-400;
+  position: relative;
   font-family: "Roboto Serif", serif;
 
-  > a {
+
+  .jump, .top {
     display: none;
   }
-  &:hover > a {
+
+  .top {
+    width: 5rem;
+    left: -5rem;
+    height: 1.1;
+    font-size: 1em;
+    line-height: 1.1em;
+    text-align: center;
+    position: absolute;
+    color: $color-highlight-700;
+  }
+
+  :global(section):hover & a {
     display: initial;
+  }
+}
+
+h2.heading {
+  font-size: 50px;
+  margin-bottom: $spacing-level-400;
+
+  @include sm {
+    & {
+      font-size: 40px;
+    }
   }
 }
 
 h3.heading {
   font-size: 25px;
-  line-height: 1.1;
-  font-weight: 600;
   padding-top: $spacing-level-200;
   margin-bottom: $spacing-level-200;
-  font-family: "Roboto Serif", serif;
 
-  > a {
-    display: none;
+  .jump {
     margin-left: $spacing-level-100;
-  }
-  &:hover > a {
-    display: initial;
-  }
-}
-
-@media (hover: none) {
-  h2.heading > a,
-  h3.heading > a {
-    display: initial;
   }
 }
 
 h4.heading {
   font-size: 20px;
-  line-height: 1.1;
-  font-weight: 600;
   margin-bottom: $spacing-level-200;
+}
+
+@media (hover: none) {
+  .heading .top {
+    display: initial;
+    position: static;
+  }
+  .heading .jump {
+    display: initial;
+  }
 }

@@ -1,11 +1,8 @@
 @use "$tokens" as *;
 
 .section {
-  font-size: 20px;
-  line-height: 1.6;
-  text-align: center;
   color: $color-neutral-100;
-  padding: $spacing-level-200 0;
+  padding: $spacing-level-200;
   background-color: $color-neutral-900;
   transform: skewY(-1 * $skew-level-100);
 }
@@ -23,3 +20,4 @@
   color: $color-neutral-900;
   background-color: $color-neutral-100;
 }
+
