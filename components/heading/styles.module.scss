@@ -46,6 +46,12 @@ h3.heading {
   .jump {
     margin-left: $spacing-level-100;
   }
+
+  @include sm {
+    & {
+      font-size: 20px;
+    }
+  }
 }
 
 h4.heading {

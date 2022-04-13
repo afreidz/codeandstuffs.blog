@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { useContext } from "react";
+import classNames from "classnames/bind";
 import PostContext from "$contexts/post";
 import styles from "./styles.module.scss";
 import { Heading, Date, Paragraph, Chip, Link } from "$components";
+
+const cx = classNames.bind(styles);
 
 export interface Props {
   date: number;
@@ -25,26 +28,34 @@ export default function Meta(props: Props) {
   const tagProps = variant === "search" ? { href: `posts/${slug}` } : {};
   const titleTag = variant === "search" ? "h3" : "h2";
 
+  const rootClassnames = cx(styles.post, {
+    [variant]: !!variant,
+  });
+
   return (
-    <Tag {...tagProps} className={styles.post}>
+    <Tag {...tagProps} className={rootClassnames}>
       {variant === "search" && (
         <figure className={styles.image}>
           <Image
-            layout="fill"
+            width={300}
+            height={300}
+            layout="responsive"
             src={image || "/logo.png"}
             alt="clever visual representing post"
           />
         </figure>
       )}
       <header>
-        <div className={styles.date}>
-          {variant !== "search" && <Date stamp={date} />}
-          {!["search", "teaser"].some((v) => v === variant) && (
-            <Link className={styles.home} href="/">
-              ← Home
-            </Link>
-          )}
-        </div>
+        {[undefined, "teaser"].some((v) => v === variant) && (
+          <div className={styles.date}>
+            {variant !== "search" && <Date stamp={date} />}
+            {variant !== "teaser" && (
+              <Link className={styles.home} href="/">
+                ← Home
+              </Link>
+            )}
+          </div>
+        )}
         <Heading as={titleTag} top={false}>
           {title}
         </Heading>

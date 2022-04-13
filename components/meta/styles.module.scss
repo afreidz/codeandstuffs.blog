@@ -2,6 +2,8 @@
 
 a.post {
   display: flex;
+  align-items: start;
+  justify-content: flex-start;
   margin: $spacing-level-200 0;
 
   header {
@@ -11,15 +13,29 @@ a.post {
     justify-content: flex-start;
 
   }
+
+  &.search h3 {
+    padding-top: $spacing-level-50;
+    margin-bottom: $spacing-level-50
+  }
 }
 
 .date {
   display: flex;
+  line-height: 1.2rem;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: $spacing-level-400;
 }
 
 .home {
   font-size: 1.2rem;
+  
+  @include sm {
+    & {
+      font-size: 1rem;
+    }
+  }
 }
 
 ul.metaList {
@@ -55,13 +71,22 @@ span.like {
 }
 
 .image {
+  flex-grow: 0;
   width: 120px;
   height: 120px;
+  flex-shrink: 0;
   position: relative;
   border-radius: 0.3rem;
-  padding: $spacing-level-200;
+  padding: $spacing-level-100;
   margin-right: $spacing-level-200;
   border: 1px solid $color-neutral-300;
+  
+  @include sm {
+    & {
+      width: 100px;
+      height: 100px;
+    }
+  }
 }
 
 .readMore {
