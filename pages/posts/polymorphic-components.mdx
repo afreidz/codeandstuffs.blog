@@ -1,0 +1,64 @@
+---
+title: Polymorphic Component for Design Systems
+date: 1649175898619
+feeling: ☕
+draft: true
+slug: polymorphic-components
+tags:
+  - code
+  - react
+  - svelte
+  - design-system
+teaser: When building a design system, style-props are a nice interface into design tokens.  It is easier to understand the interface through props than defining/importing/using things like scss variables or mixins.  Creating a foundational component with style-props can help centralize the logic/styles.  However, choosing which markup to render for the foundational component at that point is difficult. Often times it leads to div/span soup.  Polymorphic components are a great way to allow consumers a choice for what markup to render, while providing them access to the design through style-props.
+---
+<Section>
+
+I have found style-props to be a useful pattern for building a design system.  The goal of a design system is to promote visual consistency across the ui.  And building a component library that interfaces with the design system is a powerful way for large teams to quickly build consistent ui. 
+
+Exposing some of the design system values as style-props can be a bit tedious to do on every component.  Another pattern that I have found to work is using "foundational" components as the style-prop interface.  In react, [Chakra UI](https://chakra-ui.com/docs/components/layout/box) creates a foundational component called **Box**.  This is effective at creating the style-prop interface on a single component with the intention that other components are built from instances of **Box**.
+
+</Section>
+<Section invert={true}>
+
+_Example of a foundational component with style-props:_
+    
+```html
+<Box paddingY="spacing-100">
+  <span>Hello World</span>
+</Box>
+```
+
+_What the implementation may look like in react:_
+
+```tsx
+import styles from "./box.module.css";
+import classnames from "classnames/bind";
+
+const cx = classnames.bind(styles);
+
+interface BoxProps {
+  paddingY?: string;
+  ...
+  children?: React.ReactNode;
+}
+
+export default function Box(props: BoxProps){
+  const { paddingY, children } = props;
+  const classList = cx({
+    [`util-padding-y-${paddingY}`]: !!paddingY,
+    ...
+  });
+
+  return (
+    <div className={classList}>
+      {children}
+    </div>
+  );
+}
+```
+</Section>
+<Section>
+
+What we notice here is that we are using CSS modules that would define utility classes that presumably map to values from the design system.  We expose props on the box such as `paddingY` that allow the consumer to affect top and bottom padding from props on the component.  Using a helper lib, we are able to pass a `Boolean` to determine which utility classes should be added based on the style-prop existence and value.
+
+</Section>
