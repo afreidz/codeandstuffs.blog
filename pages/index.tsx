@@ -2,7 +2,7 @@ import { getByLimit } from "scripts/posts";
 import { Meta, Section } from "$components";
 import { Props as PostMeta } from "$components/meta";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const posts = await getByLimit(10);
   const main = posts.shift();
 
