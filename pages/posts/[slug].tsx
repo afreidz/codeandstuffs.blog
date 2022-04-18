@@ -1,8 +1,8 @@
 import Head from "next/head";
-import PostContext from "$contexts/post";
+import { useState } from "react";
 import * as Components from "$components";
 import { MDXRemote} from "next-mdx-remote";
-import { useState, useEffect } from "react";
+import AppContext from "$scripts/stores/app";
 import { getBySlug, getByLimit } from "$scripts/posts";
 
 const components = {
@@ -33,16 +33,7 @@ export async function getStaticPaths() {
 
 
 export default function Post({ source }) {
-  const [likes, setLikes] = useState([]);
   const [post, setPost] = useState(source.scope.slug);
-
-  useEffect(() => {
-    fetch(`/api/like/${source.scope.slug}`)
-      .then(r => r.json())
-      .then(likes => {
-        setLikes(likes);
-      });
-  }, [source.scope.slug])
 
   return (
     <>
@@ -53,15 +44,15 @@ export default function Post({ source }) {
         <meta property="og:description" content={source.frontmatter.teaser} />
         <meta property="og:url" content={`https://codeandstuffs.blog/posts/${post}`} />
       </Head>
-      <PostContext.Provider value={{ post, setPost, likes, setLikes }}>
+      <AppContext.Provider value={{ post, setPost }}>
         <Components.Section>
-          <Components.Meta {...source.frontmatter} />
+          <Components.Meta {...source.frontmatter} slug={source.scope.slug} />
         </Components.Section>
         <MDXRemote {...source} components={components} />
         <Components.Section>
           <Components.Like/>
         </Components.Section>
-      </PostContext.Provider>
+      </AppContext.Provider>
     </>
   )
 }

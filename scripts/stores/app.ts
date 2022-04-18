@@ -1,6 +1,8 @@
 import { createContext } from "react";
 
 export interface AppState {
+  post?: string;
+  setPost?: Function;
   fingerprint?: string;
   setFingerprint?: Function;
 }

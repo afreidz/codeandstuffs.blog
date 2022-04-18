@@ -8,5 +8,6 @@ export { default as Like } from "./like";
 export { default as Strong } from "./strong";
 export { default as Section } from "./section";
 export { default as Heading } from "./heading";
+export { default as Spinner } from "./spinner";
 export { default as Paragraph } from "./paragraph";
 export { Headings } from "./heading";

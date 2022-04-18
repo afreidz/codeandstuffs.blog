@@ -27,4 +27,9 @@
   &:hover, &:disabled {
     background-color: $color-highlight-700;
   }
+
+  & :global(svg) {
+    width: 1rem;
+    height: 1rem;
+  }
 }

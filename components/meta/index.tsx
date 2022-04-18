@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { useContext } from "react";
 import classNames from "classnames/bind";
-import PostContext from "$contexts/post";
 import styles from "./styles.module.scss";
-import { Heading, Date, Paragraph, Chip, Link } from "$components";
+import useLikes from "$scripts/hooks/likes";
+import { Heading, Date, Paragraph, Chip, Link, Spinner } from "$components";
 
 const cx = classNames.bind(styles);
 
@@ -11,7 +10,6 @@ export interface Props {
   date: number;
   slug?: string;
   title: string;
-  likes: number;
   teaser: string;
   image?: string;
   tags?: string[];
@@ -20,9 +18,9 @@ export interface Props {
 }
 
 export default function Meta(props: Props) {
-  const { likes } = useContext(PostContext);
   const { title, date, teaser, tags, feeling, variant, image, slug } = props;
   const headingClass = `${styles.metaHeading} ${styles.metaList}`;
+  const { likes, isLoading } = useLikes(slug);
 
   const Tag = variant === "search" ? "a" : "summary";
   const tagProps = variant === "search" ? { href: `posts/${slug}` } : {};
@@ -66,26 +64,24 @@ export default function Meta(props: Props) {
           <ul className={styles.metaList}>
             {!!feeling && (
               <li>
-                <Heading as="h4" className={headingClass} top={false}>
-                  feeling: {feeling}
-                </Heading>
+                <strong className={headingClass}>feeling: {feeling}</strong>
               </li>
             )}
             <li>
-              <Heading as="h4" className={headingClass} top={false}>
-                likes:
-              </Heading>
+              <strong className={headingClass}>likes:</strong>
               <Chip className={styles.like} type="like">
-                <>
-                  <em>❤️</em> {likes.length || 0}
-                </>
+                {isLoading ? (
+                  <Spinner/> 
+                ) : (
+                  <>
+                    <em>❤️</em> {likes?.length || 0}
+                  </>
+                )}
               </Chip>
             </li>
             {tags.length && (
               <li>
-                <Heading as="h4" className={headingClass} top={false}>
-                  tags:
-                </Heading>
+                <strong className={headingClass}>tags:</strong>
                 <ul className={styles.tags}>
                   {tags.map((t, i) => {
                     return (

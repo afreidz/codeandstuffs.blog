@@ -55,6 +55,7 @@ ul.metaList {
 
 .metaHeading.metaList {
   margin-bottom: 0;
+  font-size: 1.2rem;
   display: inline-block;
   margin-right: $spacing-level-100;
 }
@@ -67,6 +68,12 @@ span.like {
     font-size: 0.7rem;
     display: inline-block;
     margin-right: $spacing-level-50;
+  }
+
+  & :global(svg) {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: $spacing-level-50;
   }
 }
 

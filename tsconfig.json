@@ -23,7 +23,6 @@
       "$styles/*": ["styles/*"],
       "$app": ["pages/_app.tsx"],
       "$scripts/*": ["scripts/*"],
-      "$contexts/*": ["contexts/*"],
       "$tokens": ["styles/tokens.scss"],
       "$components/*": ["components/*"],
       "$components": ["components/index.ts"],

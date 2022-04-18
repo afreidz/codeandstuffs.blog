@@ -10,7 +10,7 @@ import "$styles/global.scss";
 import Head from "next/head";
 import { useState } from "react";
 import { Logo } from "$components";
-import AppContext from "$contexts/app";
+import AppContext from "$scripts/stores/app";
 
 function App({ Component, pageProps }) {
   const [fingerprint, setFingerprint] = useState(null);

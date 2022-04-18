@@ -1,13 +1,15 @@
+import { Spinner } from "$components";
 import confetti from "canvas-confetti";
-import AppContext from "$contexts/app";
-import PostContext from "$contexts/post";
 import styles from "./styles.module.scss";
+import useLikes from "$scripts/hooks/likes";
+import AppContext from "$scripts/stores/app";
+import type { Like } from "$scripts/hooks/likes";
 import { MouseEvent, useEffect, useState, useContext } from "react";
 
 export default function Like() {
-  const { fingerprint } = useContext(AppContext);
-  const { post, likes, setLikes } = useContext(PostContext);
+  const { fingerprint, post } = useContext(AppContext);
   const [enabled, setEnabled] = useState(false);
+  const { likes, isLoading } = useLikes(post);
 
   async function like(e: MouseEvent) {
     const x = e.clientX / window.innerWidth;
@@ -15,26 +17,33 @@ export default function Like() {
     confetti({ origin: { x, y } });
 
     if (fingerprint && post) {
-      const resp = await (
+      await (
         await fetch("/api/like", {
           method: "post",
           body: JSON.stringify({ post, fingerprint }),
           headers: { ContentType: "application/json" },
         })
       ).json();
-      if (resp.likes) setLikes(resp.likes);
     }
   }
 
   useEffect(() => {
-    setEnabled(!likes || !likes.find((l) => l.fingerprint === fingerprint));
+    setEnabled(
+      !likes ? false : !likes.find((l: Like) => l.fingerprint === fingerprint)
+    );
   }, [fingerprint, likes]);
 
   return (
     <button className={styles.like} disabled={!enabled} onClick={like}>
-      {enabled ? <i>🤍 </i> : <i>❤️ </i>}
-      Like{!enabled && "d"}
-      <strong>{likes.length}</strong>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <i>{enabled ? "🤍 " : "❤️ "}</i>
+          Like{enabled && "d"}
+          <strong>{likes?.length}</strong>
+        </>
+      )}
     </button>
   );
 }
